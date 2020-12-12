@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notasFinal/SeccionHasAlumnos.dart';
 import 'package:notasFinal/main.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ListaSeccion extends StatefulWidget {
   @override
@@ -14,23 +15,24 @@ class _ListaSeccion extends State<ListaSeccion> {
       itemCount: docenteService.seccionDocenteArray.length,
       itemBuilder: (context, index) {
         return ListTile(
-          leading: Icon(Icons.grade),
+          contentPadding: EdgeInsets.all(15),
+          leading: Icon(Icons.grade, color: Colors.lightBlue),
           title: Text(docenteService.seccionDocenteArray[index]
                   .nombreCodigoSeccion.nombreSeccion +
               ' - ' +
               docenteService
                   .seccionDocenteArray[index].asignatura.nombreAsignatura),
-          trailing: Icon(
-            Icons.keyboard_arrow_right,
-          ),
+          trailing: Icon(Icons.keyboard_arrow_right, color: Colors.green),
           onTap: () {
-            docenteService.getAlumnosXSeccion(docenteService
-                .seccionDocenteArray[index].nombreCodigoSeccion.codigoSeccion);
-
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => SeccionHasAlumnos(
-                    docenteService.seccionDocenteArray[index].asignatura
-                        .codigoAsignatura)));
+            docenteService
+                .getAlumnosXSeccion(docenteService.seccionDocenteArray[index]
+                    .nombreCodigoSeccion.codigoSeccion)
+                .then((value) => {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => SeccionHasAlumnos(
+                              docenteService.seccionDocenteArray[index]
+                                  .asignatura.codigoAsignatura)))
+                    });
           },
         );
       },

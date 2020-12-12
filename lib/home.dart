@@ -22,8 +22,13 @@ class _Home extends State<Home> {
           title: Text('Menú de Inicio'),
         ),
         body: new Column(children: <Widget>[
+          Container(
+              padding: EdgeInsets.all(20),
+              child: Text("Datos personales",
+                  style: TextStyle(fontSize: 30, color: Colors.lightBlue))),
+          Divider(),
           new ListTile(
-            leading: const Icon(Icons.person),
+            leading: const Icon(Icons.person, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.codigo.toString(),
@@ -31,7 +36,7 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.book),
+            leading: const Icon(Icons.book, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.nombre,
@@ -39,7 +44,7 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.book),
+            leading: const Icon(Icons.grade, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.apellido,
@@ -47,7 +52,7 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.phone),
+            leading: const Icon(Icons.phone, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.cel.toString(),
@@ -55,7 +60,7 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.credit_card),
+            leading: const Icon(Icons.credit_card, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.dni.toString(),
@@ -63,7 +68,7 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.calendar_today),
+            leading: const Icon(Icons.calendar_today, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.fecha,
@@ -71,10 +76,18 @@ class _Home extends State<Home> {
             ),
           ),
           new ListTile(
-            leading: const Icon(Icons.email),
+            leading: const Icon(Icons.email, color: Colors.green),
             title: new TextField(
               decoration: new InputDecoration(
                 hintText: appAuth.alumno.correo,
+              ),
+            ),
+          ),
+          new ListTile(
+            leading: const Icon(Icons.school, color: Colors.green),
+            title: new TextField(
+              decoration: new InputDecoration(
+                hintText: appAuth.alumno.carrera.nombreCarrera,
               ),
             ),
           ),

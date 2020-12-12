@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                     else
                       {
                         Toast.show("Usuario no registrado", context,
-                            duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM)
+                            duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER)
                       }
                   })
             }
@@ -75,8 +75,11 @@ class _LoginPageState extends State<LoginPage> {
               padding: EdgeInsets.all(10),
               child: TextField(
                 controller: _nameController,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Correo'),
+                  border: OutlineInputBorder(),
+                  labelText: 'Correo',
+                ),
               ),
             ),
             Container(

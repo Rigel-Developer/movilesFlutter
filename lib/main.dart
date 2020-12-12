@@ -14,5 +14,11 @@ Notas notas = new Notas();
 void main() async {
   Widget _defaultHome = new LoginPage();
 
-  runApp(new MaterialApp(title: 'App', home: _defaultHome));
+  runApp(new MaterialApp(
+    title: 'App',
+    home: _defaultHome,
+    routes: <String, WidgetBuilder>{
+      '/login': (BuildContext context) => new LoginPage()
+    },
+  ));
 }

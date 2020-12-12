@@ -28,6 +28,8 @@ dependencies:
   json_table: ^1.4.0
   toast: ^0.1.5
   fluttertoast: ^7.1.5
+  flutter_spinkit: "^4.1.2"
+
   flutter:
     sdk: flutter
 

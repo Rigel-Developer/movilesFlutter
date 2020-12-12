@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:notasFinal/SeccionHasAlumnos.dart';
 import 'package:notasFinal/main.dart';
 import 'package:notasFinal/models/Notas.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart' show Future;
 import 'dart:convert';
+
+import 'package:notasFinal/widgets/CustomDialog.dart';
 
 class NotasAlumnoDocente extends StatefulWidget {
   int codigoCurso;
@@ -74,15 +77,43 @@ class _NotasAlumnoDocente extends State<NotasAlumnoDocente> {
 
   @override
   Widget build(BuildContext context) {
+    var updateNotas = CustomAlertDialog(
+      title: "Actualizar Notas",
+      message:
+          "¿Estas seguro que desea actualizar las notas del alumno ${widget.codigoAlumno}",
+      positiveBtnText: "Si",
+      negativeBtnText: "No",
+      onPostivePressed: () {
+        Notas n = new Notas.update(
+            double.parse(_tfCaso1.text),
+            double.parse(_tfCaso2.text),
+            double.parse(_tfCaso3.text),
+            double.parse(_tfVirtual.text),
+            double.parse(_tfFinal.text));
+
+        updateProfile(n);
+
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (context) => SeccionHasAlumnos(widget.codigoCurso)),
+            (Route<dynamic> route) => false);
+        /* Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => new LoginPage()));*/
+      },
+    );
     return Scaffold(
         appBar: AppBar(
-          title: Text('Menú de Inicio'),
+          title: Text('Actualizacion de Notas'),
         ),
         body: ListView(
           children: [
             Container(
               padding: EdgeInsets.all(10),
-              child: Text("Codigo de Alumno:" + widget.codigoAlumno.toString()),
+              child: Text("Listado de Notas",
+                  style: TextStyle(color: Colors.lightBlue, fontSize: 30),
+                  textAlign: TextAlign.center),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -90,6 +121,7 @@ class _NotasAlumnoDocente extends State<NotasAlumnoDocente> {
                 children: <Widget>[
                   TextField(
                       controller: _tfCaso1,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         //hintText: "Ingresar Nombre Cliente",
                         labelText: "Caso 1",
@@ -99,6 +131,7 @@ class _NotasAlumnoDocente extends State<NotasAlumnoDocente> {
                       )),
                   TextField(
                       controller: _tfCaso2,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         //hintText: "Ingresar Numero de Orden de Servicio",
                         labelText: "Caso 2",
@@ -108,32 +141,30 @@ class _NotasAlumnoDocente extends State<NotasAlumnoDocente> {
                       )),
                   TextField(
                       controller: _tfCaso3,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         // hintText: "Ingresar FechaProgramada",
                         labelText: "Caso 3",
                       )),
                   TextField(
                       controller: _tfVirtual,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         // hintText: "Ingresar Linea",
                         labelText: "Caso virtual",
                       )),
                   TextField(
                       controller: _tfFinal,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         //  hintText: "Ingresar Estado",
                         labelText: "Caso final",
                       )),
                   RaisedButton(
                     onPressed: () {
-                      Notas n = new Notas.update(
-                          double.parse(_tfCaso1.text),
-                          double.parse(_tfCaso2.text),
-                          double.parse(_tfCaso3.text),
-                          double.parse(_tfVirtual.text),
-                          double.parse(_tfFinal.text));
-
-                      updateProfile(n);
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) => updateNotas);
                     },
                     child: Text("Grabar"),
                   )

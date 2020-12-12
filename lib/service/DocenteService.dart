@@ -22,9 +22,8 @@ class DocenteService {
     if (response.statusCode == 200) {
       docente = Docente.fromJson(json.decode(response.body));
       estado = true;
-    } else {
+    } else if (response.statusCode == 404) {
       estado = false;
-      throw Exception('Alumno equivocado');
     }
     return estado;
   }

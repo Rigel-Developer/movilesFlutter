@@ -50,14 +50,16 @@ class _HorarioAlumno extends State<HorarioAlumno> {
           ),
         ),
         body: SingleChildScrollView(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(30),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Lista de Horarios",
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 40, color: Colors.lightBlue),
                   ),
+                  Padding(padding: EdgeInsets.all(25)),
+                  Divider(),
                   JsonTable(
                     json,
                     showColumnToggle: true,

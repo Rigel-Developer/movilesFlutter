@@ -63,49 +63,92 @@ class _ItemCurso extends State<ItemCurso> {
           children: [
             Container(
               padding: EdgeInsets.all(10),
-              child:
-                  Text("Codigo de Alumno:" + appAuth.alumno.codigo.toString()),
+              child: Text(
+                "Listado de Notas",
+                style: TextStyle(
+                  color: Colors.indigo,
+                  fontSize: 40,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Divider(
+              color: Colors.indigo,
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Column(
                 children: <Widget>[
-                  TextField(
+                  new ListTile(
+                    leading: Text(
+                      "Caso 1",
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    title: new TextField(
                       controller: _tfCaso1,
-                      decoration: InputDecoration(
-                        //hintText: "Ingresar Nombre Cliente",
-                        labelText: "Caso 1",
-                        /*errorText: _tfNombreCliente.text.toString() == ""
-                            ? "Falta ingresar la Nombre del Cliente"
-                            : null,*/
-                      )),
-                  TextField(
+                      decoration: new InputDecoration(hintText: "Bienvenido"),
+                    ),
+                    trailing: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                  new ListTile(
+                    leading: Text(
+                      "Caso 2",
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    title: new TextField(
                       controller: _tfCaso2,
-                      decoration: InputDecoration(
-                        //hintText: "Ingresar Numero de Orden de Servicio",
-                        labelText: "Caso 2",
-                        /*errorText: _tfNumeroOrdenServicio.text.toString() == ""
-                            ? "Falta ingresar el NumeroOrdenServicio"
-                            : null,*/
-                      )),
-                  TextField(
+                      decoration: new InputDecoration(hintText: "Bienvenido"),
+                    ),
+                    trailing: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                  new ListTile(
+                    leading: Text(
+                      "Caso 3",
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    title: new TextField(
                       controller: _tfCaso3,
-                      decoration: InputDecoration(
-                        // hintText: "Ingresar FechaProgramada",
-                        labelText: "Caso 3",
-                      )),
-                  TextField(
+                      decoration: new InputDecoration(hintText: "Bienvenido"),
+                    ),
+                    trailing: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                  new ListTile(
+                    leading: Text(
+                      "Caso 4",
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    title: new TextField(
                       controller: _tfVirtual,
-                      decoration: InputDecoration(
-                        // hintText: "Ingresar Linea",
-                        labelText: "Caso virtual",
-                      )),
-                  TextField(
-                      controller: _tfFinal,
-                      decoration: InputDecoration(
-                        //  hintText: "Ingresar Estado",
-                        labelText: "Caso final",
-                      )),
+                      decoration: new InputDecoration(hintText: "Bienvenido"),
+                    ),
+                    trailing: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
+                  new ListTile(
+                    leading: Text(
+                      "Caso 5",
+                      style: TextStyle(fontSize: 20, color: Colors.lightBlue),
+                    ),
+                    title: new TextField(
+                      controller: _tfVirtual,
+                      decoration: new InputDecoration(hintText: "Bienvenido"),
+                    ),
+                    trailing: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightBlue,
+                    ),
+                  ),
                 ],
               ),
             )

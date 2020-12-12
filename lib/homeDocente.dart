@@ -2,6 +2,7 @@ import 'package:notasFinal/listaAlumnos.dart';
 import 'package:notasFinal/loginPage.dart';
 import 'package:notasFinal/main.dart';
 import 'package:flutter/material.dart';
+import 'package:notasFinal/widgets/CustomDialog.dart';
 
 import 'ListaSeccion.dart';
 
@@ -40,8 +41,10 @@ class _LoginDocente extends State<LoginDocente> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(
+              Icons.home,
+            ),
+            label: 'Inicio',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),

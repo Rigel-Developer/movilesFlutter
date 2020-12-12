@@ -35,7 +35,7 @@ class _SeccionHasAlumnos extends State<SeccionHasAlumnos> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Consulta de Horarios ",
+            "Consulta de Alumnos ",
           ),
         ),
         body: SingleChildScrollView(
@@ -45,7 +45,7 @@ class _SeccionHasAlumnos extends State<SeccionHasAlumnos> {
                 children: [
                   Text(
                     "Lista de Alumnos",
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 30, color: Colors.lightBlue),
                   ),
                   JsonTable(
                     json,
